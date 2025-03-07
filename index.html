@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPb Inside – Экскурсии по Санкт-Петербургу</title>
+  <meta name="description" content="Уникальные экскурсии по Санкт-Петербургу от опытных гидов. Бронируйте прямо на сайте!" />
+  <meta name="keywords" content="экскурсии Санкт-Петербург, необычные экскурсии СПб, авторские туры по Петербургу" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+  .header__social {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    gap: 0.5rem;
+  }
+  .header-social-link {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+  }
+  .header-social-link:hover {
+    transform: scale(1.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  </style>
+
+  <!-- Font Awesome (иконки) -->
+  <script src="https://kit.fontawesome.com/2260ab7231.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Затемняющая подложка -->
+  <div class="site-overlay" id="siteOverlay"></div>
+
+  <!-- Кнопка "Вверх" -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Прокрутить вверх">↑</button>
+  
+  <!-- Шапка -->
+  <header class="header">
+    <div class="header__logo" id="logo">SPb Inside</div>
+    <div class="header__social">
+      <a href="#" aria-label="WhatsApp" class="header-social-link">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="#" aria-label="Telegram" class="header-social-link">
+        <i class="fab fa-telegram-plane"></i>
+      </a>
+      <a href="#" aria-label="Instagram" class="header-social-link">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <button class="header__burger" id="burgerBtn" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="header__nav" id="mainNav">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#hero">Главная</a></li>
+        <li class="nav__item"><a class="nav__link" href="#faq">FAQ</a></li>
+        <li class="nav__item"><a class="nav__link" href="#tours">Экскурсии</a></li>
+        <li class="nav__item"><a class="nav__link" href="#about">О компании</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="header-offset"></div>
+  
+  <!-- Основной контент -->
+  <main class="main">
+    <!-- HERO -->
+    <section class="hero scroll-section fade-in" id="hero">
+      <div class="hero__overlay">
+        <h1 class="hero__title">Исследуйте Петербург вместе с нами</h1>
+        <p class="hero__subtitle">Авторские экскурсии по скрытым от глаз уголкам города</p>
+        <div class="hero__buttons">
+          <button class="btn btn--primary" id="bookNowBtn">Забронировать</button>
+          <button class="btn btn--secondary" data-scroll="contacts">Контакты</button>
+        </div>
+      </div>
+      <!-- Модальное окно быстрого бронирования (Hero) -->
+      <div class="modal" id="quickBookingModal" aria-hidden="true">
+        <div class="modal__content small-modal">
+          <button class="modal__close" id="quickBookingClose" aria-label="Закрыть модальное окно">×</button>
+          <h2 class="modal__title">Быстрое бронирование</h2>
+          <p>Для быстрого бронирования и вопросов напишите номер телефона. Менеджер свяжется с вами в ближайшее время.</p>
+          <div class="form-group">
+            <input type="tel" id="quickBookingPhone" placeholder="+7 (999) 999-99-99" />
+          </div>
+          <button class="btn btn--primary" id="quickBookingSubmit">Отправить</button>
+          <p style="margin-top:1rem;">но лучше посмотреть и выбрать самим 👀</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Экскурсии -->
+    <section class="tours scroll-section fade-in" id="tours">
+      <h2 class="section-title">Популярные экскурсии</h2>
+      <div class="tours__container" id="toursContainer">
+        <!-- Генерация карточек экскурсий через script.js -->
+      </div>
+    </section>
+    
+    <!-- Почему выбирают нас -->
+    <section class="why-us scroll-section fade-in" id="why-us">
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <div class="why-us__phone">
+        <div class="phone-frame">
+          <video class="phone-video" autoplay loop muted playsinline>
+            <source src="videos/video2.mov" type="video/mp4">
+            Ваш браузер не поддерживает тег видео.
+          </video>
+          <img src="images/iphonePNG.png" alt="iPhone frame" class="phone-image" />
+        </div>
+      </div>
+      <div class="why-us__container">
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit__icon"><i class="fas fa-star"></i></div>
+            <div class="benefit__desc"><strong>10 лет опыта:</strong> Опыт работы более 10 лет</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit__icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="benefit__desc"><strong>Лицензированные гиды:</strong> Квалифицированные специалисты</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit__icon"><i class="fas fa-bus"></i></div>
+            <div class="benefit__desc"><strong>Комфорт:</strong> Транспорт с климат-контролем</div>
+          </div>
+          <div class="benefit">
+            <div class="benefit__icon"><i class="fas fa-thumbs-up"></i></div>
+            <div class="benefit__desc"><strong>Отзывы:</strong> Сотни довольных клиентов</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Отзывы -->
+    <section class="reviews scroll-section fade-in" id="reviews">
+      <h2 class="section-title">Отзывы наших клиентов</h2>
+      <div class="reviews__container" id="reviewsContainer">
+        <!-- Заполняется динамически (script.js) -->
+      </div>
+    </section>
+    
+    <!-- О компании -->
+    <section class="about scroll-section fade-in" id="about">
+      <div class="about__container">
+        <div class="about__image">
+          <img src="images/spb-team.jpeg" alt="Команда SPb Inside" loading="lazy" />
+        </div>
+        <div class="about__content">
+          <h2 class="section-title">О компании</h2>
+          <p id="aboutCompanyText">
+            Наша экскурсионная компания уже более 10 лет помогает гостям и жителям Санкт-Петербурга 
+            открывать уникальные грани Северной столицы. Мы гордимся своими опытными гидами и комфортным транспортом.
+            Тысячи довольных туристов доверили нам показать самые красивые и значимые места города. Присоединяйтесь!
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq scroll-section fade-in" id="faq">
+      <h2 class="section-title">Часто задаваемые вопросы</h2>
+      <div class="faq__container" id="faqContainer">
+        <!-- Динамически рендерит FAQ (script.js) -->
+      </div>
+    </section>
+  </main>
+  
+  <!-- Футер / Contacts -->
+  <footer class="footer" id="contacts">
+    <div class="footer__container">
+      <div class="footer__info">
+        <h3 class="footer__title">SPb Inside</h3>
+        <p>© 2025, Все права защищены.</p>
+        <p id="footerAdditionalText"></p>
+      </div>
+      <div class="footer__contact">
+        <h3 class="footer__title">Контакты</h3>
+        <p><i class="fas fa-phone-alt"></i> <a href="tel:+79991234567" id="footerPhone">+7 (999) 123-45-67</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info@spbinside.ru" id="footerEmail">info@spbinside.ru</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Невский проспект, д. 10, Санкт-Петербург</span></p>
+      </div>
+      <div class="footer__social">
+        <h3 class="footer__title">Мы в соцсетях</h3>
+        <div class="social">
+          <!-- WhatsApp -->
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <!-- Telegram -->
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Боковая панель бронирования -->
+  <div class="sidebar" id="bookingSidebar" role="dialog" aria-labelledby="bookingFormTitle" aria-hidden="true">
+    <div class="sidebar__content">
+      <button class="sidebar__close" id="sidebarCloseBtn" aria-label="Закрыть панель">×</button>
+      <div class="booking-summary">
+        <img id="bookingTourImg" alt="Миниатюра тура" />
+        <h2 class="booking-summary__title" id="bookingTourTitle">Бронирование</h2>
+      </div>
+      <form class="booking-form" id="bookingForm">
+        <p class="booking-form__subtitle">Оставьте заявку, и наш менеджер свяжется с вами для подтверждения экскурсии.</p>
+        <div class="form-group">
+          <select id="bookingTourSelect">
+            <option value="" disabled selected>Выбрать экскурсию</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="bookingTypeSelect">
+            <option value="" disabled selected>Выбрать формат</option>
+            <option value="Групповая">Групповая</option>
+            <option value="Индивидуальная">Индивидуальная</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="bookingTimeSelect">
+            <option value="12:00">12:00</option>
+            <option value="14:00">14:00</option>
+            <option value="16:00">16:00</option>
+            <option value="18:00">18:00</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="date" id="bookingDateField" placeholder="Желаемая дата">
+        </div>
+        <div class="people-count">
+          <label>Взрослые</label>
+          <div class="counter">
+            <button type="button" class="counter__btn" data-action="decrease" data-target="adultCount">–</button>
+            <span id="adultCount">1</span>
+            <button type="button" class="counter__btn" data-action="increase" data-target="adultCount">+</button>
+          </div>
+        </div>
+        <div class="people-count">
+          <label>Дети 6-10 лет</label>
+          <div class="counter">
+            <button type="button" class="counter__btn" data-action="decrease" data-target="childCount">–</button>
+            <span id="childCount">0</span>
+            <button type="button" class="counter__btn" data-action="increase" data-target="childCount">+</button>
+          </div>
+        </div>
+        <div class="total-price">Итого: <span id="totalPrice">0</span> руб.</div>
+        <div class="form-group">
+          <input type="text" id="bookingNameField" placeholder="Ваше имя">
+        </div>
+        <div class="form-group">
+          <input type="tel" id="bookingPhoneField" placeholder="+7 (999) 999-99-99">
+        </div>
+        <button class="btn btn--primary" type="submit" id="bookingSubmitBtn">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Подключаем скрипты -->
+  <script src="js/script.js"></script>
+</body>
+</html>
